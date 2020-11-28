@@ -12,7 +12,6 @@ $ pip install machine_number_sense
 ## Usage
 
 ### Baseline models
-
 MLP [[1]](#1):
 ```python
 import torch
@@ -38,7 +37,6 @@ logits  # torch.Tensor with shape (4, 99)
 ```
 
 ### Experimental models
-
 Scattering Compositional Learner (SCL) [[2]](#2) adapted to problems from the MNS dataset:
 ```python
 import torch
@@ -62,6 +60,19 @@ x = torch.rand(4, 3, 80, 80)
 nalu = ConvNALU(image_size=80)
 logits = nalu(x)
 logits  # torch.Tensor with shape (4, 99)
+```
+
+### Dataset
+The MNS dataset can be obtained as described [in this repo](https://github.com/zwh1999anne/Machine-Number-Sense-Dataset).
+After downloading, it can be loaded with:
+```python
+from mns.dataset import MNSDataset
+
+dataset = MNSDataset(data_dir='/path/to/dataset', image_size=80)
+iterator = iter(dataset)
+image, target = next(iterator)
+image  # torch.Tensor with shape (3, 80, 80)
+target  # torch.Tensor with shape ()
 ```
 
 ## Unit tests
