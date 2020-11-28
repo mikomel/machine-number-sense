@@ -37,6 +37,20 @@ logits = lstm(x)
 logits  # torch.Tensor with shape (4, 99)
 ```
 
+### Experimental models
+
+[Scattering Compositional Learner](https://github.com/mikomel/scattering-compositional-learner) (SCL):
+```python
+import torch
+
+from mns.model import SCL
+
+x = torch.rand(4, 3, 80, 80)
+scl = SCL(image_size=80)
+logits = scl(x)
+logits  # torch.Tensor with shape (4, 99)
+```
+
 ## Unit tests
 ```bash
 $ python -m pytest tests
