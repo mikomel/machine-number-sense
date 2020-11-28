@@ -75,6 +75,10 @@ image  # torch.Tensor with shape (3, 80, 80)
 target  # torch.Tensor with shape ()
 ```
 
+### Training
+File `mns.module` contains a [PyTorch Lightning](https://github.com/PyTorchLightning/pytorch-lightning) module for training models on MNS.
+Training can be run with Docker using scripts from the `scripts/` directory.
+
 ## Unit tests
 ```bash
 $ python -m pytest tests
